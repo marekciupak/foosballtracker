@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  winner_id: 
+  loser_id: 
+  date: 2015-06-24
+  loser_score: 1
+
+two:
+  winner_id: 
+  loser_id: 
+  date: 2015-06-24
+  loser_score: 1
