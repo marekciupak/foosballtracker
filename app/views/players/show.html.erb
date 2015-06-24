@@ -2,6 +2,14 @@
   <h1><%= @player.fullname %></h1>
 </div>
 
+<h2>Statistics</h2>
+<p><%= @player.the_total_number_of_points %> points in <%= @player.the_total_numer_of_matches %> matches
+(<%= @player.the_numer_of_won_matches %> won, <%= @player.the_numer_of_lost_matches %> lost)</p>
+<p>The average numer of points per match: <%= @player.the_average_number_of_points_per_match %></p>
+
+<br />
+
+<h2>Matches played by <%= @player.firstname %></h2>
 <%= render partial: "matches/matches", object: @matches %>
 
 <%= link_to 'Edit', edit_player_path(@player) %> |

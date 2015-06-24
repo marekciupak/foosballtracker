@@ -5,4 +5,20 @@ class Player < ActiveRecord::Base
 	validates :firstname, :lastname, presence: true
 
 	def fullname; "#{firstname} #{lastname}" end
+	
+	def the_numer_of_won_matches; self.victories.count	end
+	def the_numer_of_lost_matches; self.lost.count end
+	def the_number_of_points_in_lost_matches; self.lost.sum("loser_score") end
+
+	def the_total_numer_of_matches
+		the_numer_of_won_matches + the_numer_of_lost_matches 
+	end
+
+	def the_total_number_of_points
+		10 * the_numer_of_won_matches + the_number_of_points_in_lost_matches
+	end
+
+	def the_average_number_of_points_per_match
+		the_total_number_of_points / (the_total_numer_of_matches)
+	end
 end

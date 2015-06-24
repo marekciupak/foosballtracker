@@ -12,4 +12,6 @@ class Match < ActiveRecord::Base
 	      errors.add(:loser, "In a single match can't be the same two players")
     	end
 	end
+
+	scope :played_by, ->(player_id) { where("winner_id == :player OR loser_id == :player", {player: player_id}) }
 end
