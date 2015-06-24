@@ -19,6 +19,6 @@ class Player < ActiveRecord::Base
 	end
 
 	def the_average_number_of_points_per_match
-		the_total_number_of_points / (the_total_numer_of_matches)
+		the_total_number_of_points / (the_total_numer_of_matches.nonzero? || 1)
 	end
 end
