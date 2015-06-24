@@ -10,6 +10,7 @@ class PlayersController < ApplicationController
   # GET /players/1
   # GET /players/1.json
   def show
+    @matches = Match.where("winner_id == :player OR loser_id == :player", {player: @player.id}).includes(:winner, :loser)
   end
 
   # GET /players/new
