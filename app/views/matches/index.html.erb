@@ -16,8 +16,8 @@
   <tbody>
     <% @matches.each do |match| %>
       <tr>
-        <td><%= match.winner.firstname + ' ' + match.winner.lastname %></td>
-        <td><%= match.loser.firstname + ' ' + match.loser.lastname %></td>
+        <td><%= match.winner.fullname %></td>
+        <td><%= match.loser.fullname %></td>
         <td><%= match.date %></td>
         <td><%= match.loser_score %></td>
         <td><%= link_to 'Show', match %></td>

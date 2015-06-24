@@ -3,4 +3,6 @@ class Player < ActiveRecord::Base
 	has_many :lost, :class_name => "Match", :foreign_key => 'loser_id'
 
 	validates :firstname, :lastname, presence: true
+
+	def fullname; "#{firstname} #{lastname}" end
 end
