@@ -7,7 +7,7 @@ class Player < ActiveRecord::Base
 
 	def fullname; "#{firstname} #{lastname}" end
 	
-	def the_numer_of_won_matches; self.victories.count	end
+	def the_numer_of_won_matches; self.victories.count end
 	def the_numer_of_lost_matches; self.lost.count end
 	def the_number_of_points_in_lost_matches; self.lost.sum("loser_score") end
 
