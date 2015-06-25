@@ -7,6 +7,12 @@ class PlayersController < ApplicationController
     @players = Player.all
   end
 
+  # GET /ranking
+  # GET /ranking.json
+  def ranking
+    @players = Player.all.order(rank: :desc)
+  end
+
   # GET /players/1
   # GET /players/1.json
   def show

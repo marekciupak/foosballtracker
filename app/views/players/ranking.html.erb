@@ -1,0 +1,23 @@
+<div class="page-header">
+  <h1>Ranking</h1>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Rank</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @players.each do |player| %>
+      <tr>
+        <td><%= player.firstname %></td>
+        <td><%= player.lastname %></td>
+        <td><%= number_with_precision(player.rank, precision: 1) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

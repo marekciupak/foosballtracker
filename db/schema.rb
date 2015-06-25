@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623222944) do
+ActiveRecord::Schema.define(version: 20150624202201) do
 
   create_table "matches", force: :cascade do |t|
     t.integer  "winner_id"
@@ -28,8 +28,11 @@ ActiveRecord::Schema.define(version: 20150623222944) do
   create_table "players", force: :cascade do |t|
     t.string   "firstname"
     t.string   "lastname"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.decimal  "rank",       default: 1000.0
   end
+
+  add_index "players", ["rank"], name: "index_players_on_rank"
 
 end
