@@ -1,4 +1,6 @@
 class MatchesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+
   # GET /matches
   # GET /matches.json
   def index

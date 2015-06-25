@@ -1,4 +1,4 @@
-<%= form_for(@player) do |f| %>
+<%= form_for @player, :html => {:class => 'form'} do |f| %>
   <% if @player.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
       <strong><%= pluralize(@player.errors.count, "error") %> prohibited this player from being saved:</strong>

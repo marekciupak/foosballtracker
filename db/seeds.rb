@@ -1,3 +1,5 @@
+admin = User.create(:email => 'root@example.localhost', :password => '12345678', :password_confirmation => '12345678')
+
 p = Array.new
 
 p.push(Player.create(firstname: 'Daenerys', lastname: 'Targaryen', email: 'daenerys.targaryen@example.localhost'))
