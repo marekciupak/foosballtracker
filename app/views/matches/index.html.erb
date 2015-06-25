@@ -4,6 +4,8 @@
 
 <%= render partial: "matches", object: @matches %>
 
-<br>
+<%= will_paginate @matches %>
+
+<br /><br />
 
 <%= link_to 'New Match', new_match_path, class: "btn btn-success" %>

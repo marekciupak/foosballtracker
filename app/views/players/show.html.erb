@@ -13,5 +13,9 @@
 <h2>Matches played by <%= @player.firstname %></h2>
 <%= render partial: "matches/matches", object: @matches %>
 
+<%= will_paginate @matches %>
+
+<br /><br />
+
 <%= link_to 'Edit', edit_player_path(@player), class: "btn btn-primary" %>
 <%= link_to 'Back', players_path, class: "btn btn-primary" %>

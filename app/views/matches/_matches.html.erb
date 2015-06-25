@@ -12,7 +12,7 @@
   <tbody>
     <% @matches.each_with_index do |match, index| %>
       <tr>
-        <td><%= index+1 %></td>
+        <td><%= index+1 + 10*((params[:page].to_i.nonzero? || 1)-1) %></td>
         <td><%= match.date %></td>
         <td class="winner"><%= match.winner.fullname %></td>
         <td class="score">10:<%= match.loser_score %></td>

@@ -10,7 +10,7 @@ class PlayersController < ApplicationController
   # GET /players/1
   # GET /players/1.json
   def show
-    @matches = Match.played_by(@player).includes(:winner, :loser)
+    @matches = Match.played_by(@player).order(:date).includes(:winner, :loser).paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /players/new
