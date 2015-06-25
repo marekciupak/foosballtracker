@@ -1,7 +1,7 @@
-<%= form_for(@match) do |f| %>
+<%= form_for @match, :html => {:class => 'form-inline'} do |f| %>
   <% if @match.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@match.errors.count, "error") %> prohibited this match from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger">
+      <strong><%= pluralize(@match.errors.count, "error") %> prohibited this match from being saved:</strong>
 
       <ul>
       <% @match.errors.full_messages.each do |message| %>
@@ -11,23 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :winner_id %><br>
-    <%= f.collection_select(:winner_id, Player.all, :id, :fullname) %>
+  <div class="form-group">
+    <%= f.label :date %><br />
+    <%= f.date_select :date, {}, {:class=>'form-control'} %>
   </div>
-  <div class="field">
-    <%= f.label :loser_id %><br>
-    <%= f.collection_select(:loser_id, Player.all, :id, :fullname) %>
+  <br /><br />
+  <div class="form-group">
+    <%= f.label :winner_id %><br />
+    <%= f.collection_select(:winner_id, Player.all, :id, :fullname, {}, {:class=>'form-control'}) %>
   </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
+  <div class="form-group">
+    <%= f.label :loser_score, 'Score' %><br />
+    <input class="form-control" type="number" name="match[winner_score]" id="match_winner_score" placeholder="10" readonly /> : <%= f.number_field :loser_score, min: 0, max: 9, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :loser_score %><br>
-    <%= f.number_field :loser_score %>
+  <div class="form-group">
+    <%= f.label :loser_id %><br />
+    <%= f.collection_select(:loser_id, Player.all, :id, :fullname, {}, {:class=>'form-control'}) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <br /><br />
+  <%= f.submit class: "btn btn-success" %>
 <% end %>

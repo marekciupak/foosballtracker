@@ -24,9 +24,8 @@
 
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/players">Players</a></li>
-        <li><a href="/matches">Matches</a></li>
-        <li><a href="/players/ranking">Ranking</a></li>
+        <li<% if params[:controller] == 'players' %> class="active"<% end %>><a href="/players">Classification</a></li>
+        <li<% if params[:controller] == 'matches' %> class="active"<% end %>><a href="/matches">Matches</a></li>
       </ul>
     </div>
   </div>
@@ -48,6 +47,8 @@
 <% end %>
 
 <%= yield %>
+
+<br /><br />
 
 </div>
 

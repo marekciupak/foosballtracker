@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
   # GET /matches
   # GET /matches.json
   def index
-    @matches = Match.all.includes(:winner, :loser)
+    @matches = Match.all.order(:date).includes(:winner, :loser)
   end
 
   # GET /matches/new

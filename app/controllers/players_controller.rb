@@ -4,12 +4,6 @@ class PlayersController < ApplicationController
   # GET /players
   # GET /players.json
   def index
-    @players = Player.all
-  end
-
-  # GET /ranking
-  # GET /ranking.json
-  def ranking
     @players = Player.all.order(rank: :desc)
   end
 

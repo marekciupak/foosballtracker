@@ -3,7 +3,7 @@ class Match < ActiveRecord::Base
  	belongs_to :loser, :class_name => "Player"
 
 	validates :winner, :loser, :date, presence: true
-	validates :loser_score, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 10 }
+	validates :loser_score, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 10 }
 
 	validate :in_a_single_match_can_not_be_the_same_two_players
 

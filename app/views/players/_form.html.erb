@@ -1,7 +1,7 @@
 <%= form_for(@player) do |f| %>
   <% if @player.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@player.errors.count, "error") %> prohibited this player from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger">
+      <strong><%= pluralize(@player.errors.count, "error") %> prohibited this player from being saved:</strong>
 
       <ul>
       <% @player.errors.full_messages.each do |message| %>
@@ -11,15 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :firstname %><br>
-    <%= f.text_field :firstname %>
+  <div class="form-group">
+    <%= f.label :firstname %>
+    <%= f.text_field :firstname, class: "form-control", placeholder: "Firstname" %>
   </div>
-  <div class="field">
-    <%= f.label :lastname %><br>
-    <%= f.text_field :lastname %>
+  <div class="form-group">
+    <%= f.label :lastname %>
+    <%= f.text_field :lastname, class: "form-control", placeholder: "Lastname" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit class: "btn btn-success" %>
 <% end %>

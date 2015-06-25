@@ -1,2 +1,28 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.table tbody tr td {
+	vertical-align: middle;
+}
+form .form-group input {
+	width: auto;
+}
+form .alert {
+	max-width: 400px;
+}
+.winner {
+	text-align: right;
+}
+.score {
+	text-align: center;
+}
+.loser {
+	text-align: left;
+}
+form.form-inline input#match_winner_score, form input#match_loser_score {
+	display: inline;
+	max-width: 70px;
+}
+form.form-inline .field_with_errors {
+	display: inline;
+}

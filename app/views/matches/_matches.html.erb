@@ -1,20 +1,22 @@
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Winner</th>
-      <th>Loser</th>
-      <th>Date</th>
-      <th>Score</th>
+      <th>#</th>
+      <th><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span> Date</th>
+      <th class="winner">Winner</th>
+      <th class="score">Score</th>
+      <th class="loser">Loser</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @matches.each do |match| %>
+    <% @matches.each_with_index do |match, index| %>
       <tr>
-        <td><%= match.winner.fullname %></td>
-        <td><%= match.loser.fullname %></td>
+        <td><%= index+1 %></td>
         <td><%= match.date %></td>
-        <td>10:<%= match.loser_score %></td>
+        <td class="winner"><%= match.winner.fullname %></td>
+        <td class="score">10:<%= match.loser_score %></td>
+        <td class="loser"><%= match.loser.fullname %></td>
       </tr>
     <% end %>
   </tbody>

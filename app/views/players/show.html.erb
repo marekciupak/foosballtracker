@@ -6,11 +6,12 @@
 <p><%= @player.the_total_number_of_points %> points in <%= @player.the_total_numer_of_matches %> matches
 (<%= @player.the_numer_of_won_matches %> won, <%= @player.the_numer_of_lost_matches %> lost)</p>
 <p>The average numer of points per match: <%= @player.the_average_number_of_points_per_match %></p>
-
+<p>Score in ranking system: <strong><%= number_with_precision(@player.rank, precision: 1) %></strong></p>
+<p>Joined <%= distance_of_time_in_words(Time.now, @player.created_at) %> ago</p>
 <br />
 
 <h2>Matches played by <%= @player.firstname %></h2>
 <%= render partial: "matches/matches", object: @matches %>
 
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
+<%= link_to 'Edit', edit_player_path(@player), class: "btn btn-primary" %>
+<%= link_to 'Back', players_path, class: "btn btn-primary" %>
