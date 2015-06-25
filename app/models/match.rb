@@ -25,7 +25,7 @@ class Match < ActiveRecord::Base
 
       # the most recent game should have more impact on new players
       # they tend to have more fluctuations than well-established players
-      winner_kfactor = loser_kfactor = 2.5
+      winner_kfactor = loser_kfactor = 2.7
       winner_kfactor += 0.8 if self.winner.the_total_numer_of_matches <= 5
       loser_kfactor += 0.8 if self.loser.the_total_numer_of_matches <= 5
 

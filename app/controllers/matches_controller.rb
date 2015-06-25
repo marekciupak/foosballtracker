@@ -17,7 +17,11 @@ class MatchesController < ApplicationController
 
     respond_to do |format|
       if @match.save
-        format.html { redirect_to matches_path, notice: 'Match was successfully created.' }
+        info = "The number of points for players in the ranking system has changed:
+        #{@match.winner.fullname}: #{sprintf("%.1f", @match.winner.rank)},
+        #{@match.loser.fullname}: #{sprintf("%.1f", @match.loser.rank)}."
+
+        format.html { redirect_to matches_path, notice: 'Match was successfully created. ' + info }
         format.json { render :show, status: :created, location: @match }
       else
         format.html { render :new }
