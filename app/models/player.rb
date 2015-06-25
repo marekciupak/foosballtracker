@@ -3,6 +3,7 @@ class Player < ActiveRecord::Base
 	has_many :lost, :class_name => "Match", :foreign_key => 'loser_id'
 
 	validates :firstname, :lastname, presence: true
+	validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
 
 	def fullname; "#{firstname} #{lastname}" end
 	

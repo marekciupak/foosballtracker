@@ -17,7 +17,7 @@
     <% @players.each_with_index do |player, index| %>
       <tr>
         <td><%= index+1 %></td>
-        <td><%= link_to player.fullname, player %></td>
+        <td><%= image_tag avatar_url(player, 24) %>  <%= link_to player.fullname, player %></td>
         <td><%= distance_of_time_in_words(Time.now, player.created_at) %> ago</td>
         <td><%= number_with_precision(player.rank, precision: 1) %></td>
         <td>
