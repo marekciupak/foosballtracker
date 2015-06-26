@@ -15,7 +15,7 @@ class Match < ActiveRecord::Base
 
 	after_create :update_ranks
 
-	scope :played_by, ->(player_id) { where("winner_id == :player OR loser_id == :player", {player: player_id}) }
+	scope :played_by, ->(player_id) { where("winner_id = :player OR loser_id = :player", {player: player_id}) }
 
 	def update_ranks
       # how much different were the players skills?
