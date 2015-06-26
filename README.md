@@ -18,7 +18,9 @@ User should be able to:
 * In addition, there were added pagination and login and authentication for some actions.
 
 ## Ranking system
-After each match the number of points of the player is updated based on parameters:
-* previous number of points,
-* probability of winning the game by each player (comparing the amount of ranking points between players; using normal distribution to compute probability),
-* level of knowledge of the player's skills by system (the outcome of the game has more impact on new players).
+Every new player starts with 1000 points in the ranking. Player's number of points increases or decreases (depending on whether he won or lost) when his new match comes to database.
+
+Increase/decrease the number of points for each player is calculated based on:
+* score of the match,
+* the probability of winning the game for player (you win with master - you have more points!). I use the normal distribution to calculate the chances of winning for player,
+* the number of finished games by player (the match has bigger impact for new players, because system is not so sure about their skills).
