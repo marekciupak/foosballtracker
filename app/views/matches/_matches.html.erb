@@ -14,9 +14,9 @@
       <tr>
         <td><%= index+1 + 10*((params[:page].to_i.nonzero? || 1)-1) %></td>
         <td><%= match.date %></td>
-        <td class="winner"><%= match.winner.fullname %></td>
+        <td class="winner"><%= match.winner.present? ? match.winner.fullname : "<i>Player deleted</i>".html_safe %></td>
         <td class="score">10:<%= match.loser_score %></td>
-        <td class="loser"><%= match.loser.fullname %></td>
+        <td class="loser"><%= match.loser.present? ? match.loser.fullname : "<i>Player deleted</i>".html_safe %></td>
       </tr>
     <% end %>
   </tbody>
