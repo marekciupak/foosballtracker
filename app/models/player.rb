@@ -5,21 +5,13 @@ class Player < ActiveRecord::Base
   validates :firstname, :lastname, presence: true
   validates :email, format: {with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
 
-  def fullname;
-    "#{firstname} #{lastname}"
-  end
+  def fullname; "#{firstname} #{lastname}" end
 
-  def the_numer_of_won_matches;
-    self.victories.count
-  end
+  def the_numer_of_won_matches; self.victories.count end
 
-  def the_numer_of_lost_matches;
-    self.lost.count
-  end
+  def the_numer_of_lost_matches; self.lost.count end
 
-  def the_number_of_points_in_lost_matches;
-    self.lost.sum("loser_score")
-  end
+  def the_number_of_points_in_lost_matches; self.lost.sum("loser_score") end
 
   def the_total_numer_of_matches
     the_numer_of_won_matches + the_numer_of_lost_matches
