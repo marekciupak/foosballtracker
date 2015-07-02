@@ -24,7 +24,7 @@ class MatchesController < ApplicationController
   end
 
   private
-    def match_params
-      params.require(:match).permit(:winner_id, :loser_id, :date, :loser_score)
-    end
+  def match_params
+    params.require(:match).permit(:winner_id, :loser_id, :date, :loser_score)
+  end
 end

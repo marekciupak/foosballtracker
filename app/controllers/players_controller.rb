@@ -37,16 +37,16 @@ class PlayersController < ApplicationController
 
   def destroy
     @player.destroy
-    
+
     redirect_to players_url, notice: 'Player was successfully destroyed.'
   end
 
   private
-    def set_player
-      @player = Player.find(params[:id])
-    end
+  def set_player
+    @player = Player.find(params[:id])
+  end
 
-    def player_params
-      params.require(:player).permit(:firstname, :lastname, :email)
-    end
+  def player_params
+    params.require(:player).permit(:firstname, :lastname, :email)
+  end
 end
